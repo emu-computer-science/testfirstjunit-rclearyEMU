@@ -1,4 +1,4 @@
-package buildToTestLab;
+package testingDates;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class Date
     private int day;
     private int year; //a four digit number.
 
-    public Date( )
+    public Date()
     {
         this("January", 1, 1000);  // Could have used setDate instead
     }
@@ -252,6 +252,11 @@ public class Date
             return "Error"; //to keep the compiler happy
         }
     }
+    
+    public Date addOneDay(){
+       return new Date();
+    }
+    
     public static void main(String[] args) {
         System.out.println("Main in Date.");
         Date tester = new Date();
