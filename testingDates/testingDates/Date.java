@@ -69,8 +69,7 @@ public class Date
         }
         else
         {
-            System.out.println("Fatal Error in setDate(String,int, int)");
-            System.exit(0);
+            return;
         }
     }
 
@@ -113,9 +112,9 @@ public class Date
 
     public int getMonth()
     {
-        if (month.equals("January"))
+        if (month.equalsIgnoreCase("January"))
             return 1;
-        else if (month.equals("February"))
+        else if (month.equalsIgnoreCase("February"))
             return 2;
         else if (month.equalsIgnoreCase("March"))
             return 3;
@@ -123,7 +122,7 @@ public class Date
             return 4;
         else if (month.equalsIgnoreCase("May"))
             return 5;
-        else if (month.equals("June"))
+        else if (month.equalsIgnoreCase("June"))
             return 6;
         else if (month.equalsIgnoreCase("July"))
             return 7;
@@ -133,9 +132,9 @@ public class Date
             return 9;
         else if (month.equalsIgnoreCase("October"))
             return 10;
-        else if (month.equals("November"))
+        else if (month.equalsIgnoreCase("November"))
             return 11;
-        else if (month.equals("December"))
+        else if (month.equalsIgnoreCase("December"))
             return 12;
         else
         {
@@ -211,12 +210,12 @@ public class Date
 
     private boolean monthOK(String month)
     {
-        return (month.equals("January") || month.equals("February") ||
-                month.equals("March") || month.equals("April") ||
-                month.equals("May") || month.equals("June") ||
-                month.equals("July") || month.equals("August") ||
-                month.equals("September") || month.equals("October") ||
-                month.equals("November") || month.equals("December") );
+        return (month.equalsIgnoreCase("January") || month.equalsIgnoreCase("February") ||
+                month.equalsIgnoreCase("March") || month.equalsIgnoreCase("April") ||
+                month.equalsIgnoreCase("May") || month.equalsIgnoreCase("June") ||
+                month.equalsIgnoreCase("July") || month.equalsIgnoreCase("August") ||
+                month.equalsIgnoreCase("September") || month.equalsIgnoreCase("October") ||
+                month.equalsIgnoreCase("November") || month.equalsIgnoreCase("December") );
     }
 
     private String monthString(int monthNumber)
