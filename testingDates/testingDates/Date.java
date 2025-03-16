@@ -7,6 +7,7 @@ public class Date
     private String month;
     private int day;
     private int year; //a four digit number.
+    private int[] daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public Date()
     {
@@ -110,7 +111,7 @@ public class Date
             this.day = day;
     }
 
-    public int getMonth( )
+    public int getMonth()
     {
         if (month.equals("January"))
             return 1;
@@ -161,7 +162,7 @@ public class Date
 
     public boolean equals(Date otherDate)
     {
-        return ( (month.equals(otherDate.month))
+        return ((month.equals(otherDate.month))
                   && (day == otherDate.day) && (year == otherDate.year) );
     }
 
@@ -204,7 +205,7 @@ public class Date
     private boolean dateOK(String monthString, int dayInt, int yearInt)
     {
         return ( monthOK(monthString) &&
-                 (dayInt >= 1) && (dayInt <= 31) &&
+                 (dayInt >= 1 && dayInt <= 31) &&
                  (yearInt >= 1000) && (yearInt <= 9999) );
     }
 
@@ -253,8 +254,21 @@ public class Date
         }
     }
     
-    public Date addOneDay(){
-       return new Date();
+    Date addOneDay(){
+    	int month = this.getMonth();
+    	Date newDate = new Date();
+    	
+    	if (this.day + 1 > daysInMonth[month-1]) {
+    		if (month == 12)
+    			newDate.setDate(1, 1, this.year + 1);
+    		else
+    			newDate.setDate(month + 1, 1, this.year);
+    	}
+    	else {
+    		newDate.setDate(month, this.day + 1, this.year);
+    	}
+    	
+		return newDate;
     }
     
     public static void main(String[] args) {
